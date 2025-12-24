@@ -1,0 +1,16 @@
+export { default as IlustrasiAsset } from "./Illustrasi Login.png";
+export { default as LogoAsset } from "./Logo.png";
+export { default as ProfileAsset } from "./Profile Photo.png";
+export { default as BgSaldoAsset } from "./Background Saldo.png";
+export { default as PbbAsset } from "./PBB.png";
+export { default as ListrikAsset } from "./Listrik.png";
+export { default as PulsaAsset } from "./Pulsa.png";
+export { default as PDAMAsset } from "./PDAM.png";
+export { default as PgnAsset } from "./PGN.png";
+export { default as TvAsset } from "./Televisi.png";
+export { default as MusicAsset } from "./Musik.png";
+export { default as GameAsset } from "./Game.png";
+export { default as MakananAsset } from "./Voucher Makanan.png";
+export { default as KurbanAsset } from "./Kurban.png";
+export { default as ZakatAsset } from "./Zakat.png";
+export { default as PaketAsset } from "./Paket Data.png";
