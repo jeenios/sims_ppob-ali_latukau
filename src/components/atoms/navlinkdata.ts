@@ -1,11 +1,11 @@
 export const NavLinkData = [
   {
     label: "Top Up",
-    href: "/login",
+    href: "/topup",
   },
   {
     label: "Transaction",
-    href: "/login",
+    href: "/transaction",
   },
   {
     label: "Akun",

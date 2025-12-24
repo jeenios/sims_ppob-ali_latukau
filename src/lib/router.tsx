@@ -1,5 +1,5 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import { LoginPage, RegisterPage, HomePage } from "@/pages";
+import { LoginPage, RegisterPage, HomePage, TopupPage, TransactionPage } from "@/pages";
 import { MainLayout } from "@/layouts";
 
 export const router = createBrowserRouter([
@@ -21,6 +21,14 @@ export const router = createBrowserRouter([
       {
         path: "/homepage",
         element: <HomePage />,
+      },
+      {
+        path: "/topup",
+        element: <TopupPage />,
+      },
+      {
+        path: "/transaction",
+        element: <TransactionPage />,
       },
       // Halaman lain yang butuh Navbar bisa ditambahkan di sini
     ],

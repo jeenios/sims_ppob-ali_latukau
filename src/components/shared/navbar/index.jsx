@@ -16,15 +16,23 @@ const Navbar = () => {
   return (
     <div className="w-full border-b border-solid border-gray-200">
       <div className="flex justify-between items-center max-w-7xl mx-auto p-4">
-        <div className="flex items-center gap-2">
-          <img src={LogoAsset} alt="logo SIMS" width={20} height={20} />
-          <Label className="text-md">SIMS PPOB</Label>
-        </div>
+        <Link to="/homepage">
+          <div className="flex items-center gap-2">
+            <img src={LogoAsset} alt="logo SIMS" width={20} height={20} />
+            <Label className="text-md hover:cursor-pointer hover:text-primary transition-colors">
+              SIMS PPOB
+            </Label>
+          </div>
+        </Link>
         <div className="hidden md:flex items-center gap-12">
           {NavlinkData.map((item) => (
-            <Label key={item.href} className="text-md">
-              <Link to={item.href}>{item.label}</Link>
-            </Label>
+            <Link
+              key={item.label}
+              to={item.href}
+              className="text-md font-medium hover:text-primary transition-colors"
+            >
+              {item.label}
+            </Link>
           ))}
         </div>
         <div className="flex md:hidden">
@@ -36,12 +44,13 @@ const Navbar = () => {
               <SheetHeader>
                 <SheetDescription>
                   {NavlinkData.map((item) => (
-                    <Label
-                      key={item.href}
-                      className="flex flex-col text-md text-start mt-4"
+                    <Link
+                      key={item.label}
+                      to={item.href}
+                      className="flex flex-col text-start text-md font-medium hover:text-primary transition-colors mt-4"
                     >
-                      <Link to={item.href}>{item.label}</Link>
-                    </Label>
+                      {item.label}
+                    </Link>
                   ))}
                 </SheetDescription>
               </SheetHeader>

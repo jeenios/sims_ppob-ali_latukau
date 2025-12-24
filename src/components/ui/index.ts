@@ -5,3 +5,4 @@ export * from "./input-group";
 export * from "./input-with-addon";
 export * from "./form";
 export * from "./sheet";
+export * from "./card";

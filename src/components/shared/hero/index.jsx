@@ -15,9 +15,9 @@ const Hero = () => {
             className="mb-4"
           />
           <Label className="text-xl">Selamat Datang,</Label>
-          <Label className="text-2xl font-semibold">Ali Latukau</Label>
+          <Label className="text-3xl font-semibold">Ali Latukau</Label>
         </div>
-        <div className="w-full md:w-[60%] h-50 md:h-full overflow-hidden rounded-3xl relative">
+        <div className="w-full md:w-[60%] h-50 md:h-40 lg:h-full overflow-hidden rounded-3xl relative">
           <img
             src={BgSaldoAsset}
             alt="Logo Saldo"
