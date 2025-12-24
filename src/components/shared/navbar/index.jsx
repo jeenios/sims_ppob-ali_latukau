@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { LuAlignJustify } from "react-icons/lu";
 import { LogoAsset } from "@/assets";
-import { NavLinkData } from "@/components";
+import { NavLinkData } from "@/constants/navlinkdata";
 import {
   Label,
   Sheet,

@@ -9,6 +9,6 @@ export const NavLinkData = [
   },
   {
     label: "Akun",
-    href: "/login",
+    href: "/akun",
   },
 ];

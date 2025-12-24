@@ -1,6 +1,5 @@
-import { ProfileAsset } from "@/assets";
+import { ProfileAsset, BgSaldoAsset } from "@/assets";
 import { Label } from "@/components";
-import { BgSaldoAsset } from "@/assets";
 
 const Hero = () => {
   return (
