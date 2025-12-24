@@ -1,8 +1,19 @@
 import { Label, InputWithAddon, Button } from "@/components";
 import { LuAtSign, LuUser } from "react-icons/lu";
 import { ProfileAsset } from "@/assets";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logout } from "@/store/authSlice";
 
 const AkunPage = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
+  };
+
   return (
     <div className="w-full flex justify-center">
       <div className="flex flex-col items-center justify-center w-full max-w-2xl gap-4 px-4 py-6">
@@ -51,7 +62,11 @@ const AkunPage = () => {
             >
               Edit Profile
             </Button>
-            <Button type="button" className="w-full font-semibold">
+            <Button
+              type="button"
+              className="w-full font-semibold"
+              onClick={handleLogout}
+            >
               Logout
             </Button>
           </div>

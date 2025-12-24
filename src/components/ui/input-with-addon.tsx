@@ -12,35 +12,43 @@ type InputWithAddonProps = React.ComponentProps<typeof Input> & {
   className?: string;
 };
 
-export function InputWithAddon({
-  leftIcon,
-  rightButtonText,
-  onRightButtonClick,
-  rightIcon,
-  onRightIconClick,
-  className,
-  ...inputProps
-}: InputWithAddonProps) {
-  return (
-    <InputGroup className={cn("w-full", className)}>
-      {leftIcon ? <InputGroupAddon>{leftIcon}</InputGroupAddon> : null}
-      <InputGroupInput {...inputProps} />
-      {rightButtonText ? (
-        <InputGroupAddon align="inline-end">
-          <InputGroupButton onClick={onRightButtonClick}>{rightButtonText}</InputGroupButton>
-        </InputGroupAddon>
-      ) : rightIcon ? (
-        <InputGroupAddon align="inline-end">
-          <button
-            type="button"
-            onClick={onRightIconClick}
-            className="p-2 text-muted-foreground hover:text-foreground"
-          >
-            {rightIcon}
-          </button>
-        </InputGroupAddon>
-      ) : null}
-    </InputGroup>
-  );
-}
+export const InputWithAddon = React.forwardRef<HTMLInputElement, InputWithAddonProps>(
+  (
+    {
+      leftIcon,
+      rightButtonText,
+      onRightButtonClick,
+      rightIcon,
+      onRightIconClick,
+      className,
+      ...inputProps
+    },
+    ref
+  ) => {
+    return (
+      <InputGroup className={cn("w-full", className)}>
+        {leftIcon ? <InputGroupAddon>{leftIcon}</InputGroupAddon> : null}
+        <InputGroupInput ref={ref} {...inputProps} />
+        {rightButtonText ? (
+          <InputGroupAddon align="inline-end">
+            <InputGroupButton onClick={onRightButtonClick}>
+              {rightButtonText}
+            </InputGroupButton>
+          </InputGroupAddon>
+        ) : rightIcon ? (
+          <InputGroupAddon align="inline-end">
+            <button
+              type="button"
+              onClick={onRightIconClick}
+              className="p-2 text-muted-foreground hover:text-foreground"
+            >
+              {rightIcon}
+            </button>
+          </InputGroupAddon>
+        ) : null}
+      </InputGroup>
+    );
+  }
+);
+InputWithAddon.displayName = "InputWithAddon";
 

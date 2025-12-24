@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { LoginPage, RegisterPage, HomePage, TopupPage, TransactionPage, AkunPage } from "@/pages";
 import { MainLayout } from "@/layouts";
+import ProtectedRoute from "@/providers/protectedroute";
 
 export const router = createBrowserRouter([
   {
@@ -16,23 +17,28 @@ export const router = createBrowserRouter([
     element: <RegisterPage />,
   },
   {
-    element: <MainLayout />,
+    element: <ProtectedRoute />,
     children: [
       {
-        path: "/homepage",
-        element: <HomePage />,
-      },
-      {
-        path: "/topup",
-        element: <TopupPage />,
-      },
-      {
-        path: "/transaction",
-        element: <TransactionPage />,
-      },
-      {
-        path: "/akun",
-        element: <AkunPage />,
+        element: <MainLayout />,
+        children: [
+          {
+            path: "/homepage",
+            element: <HomePage />,
+          },
+          {
+            path: "/topup",
+            element: <TopupPage />,
+          },
+          {
+            path: "/transaction",
+            element: <TransactionPage />,
+          },
+          {
+            path: "/akun",
+            element: <AkunPage />,
+          },
+        ],
       },
     ],
   },

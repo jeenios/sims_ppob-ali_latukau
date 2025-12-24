@@ -1,13 +1,24 @@
 import { Link } from "react-router-dom";
 import { Hero } from "@/components";
 import { HeroMenus } from "@/constants/heromenu";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getProfileAction } from "@/store/authSlice";
+import { getBalanceAction } from "@/store/balanceSlice";
 
 const HomePage = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProfileAction());
+    dispatch(getBalanceAction());
+  }, [dispatch]);
+
   const getHeroMenu = HeroMenus;
   return (
     <div>
       <Hero />
-      <div className="w-full mt-5">
+      <div className="w-full mt-10">
         <div className="flex flex-row justify-between overflow-x-auto gap-4 pb-4 scrollbar-hide">
           {getHeroMenu.map((item) => (
             <Link
