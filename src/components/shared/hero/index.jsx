@@ -6,7 +6,7 @@ import { LuEye, LuEyeOff } from "react-icons/lu";
 import { formatThousand } from "@/lib/format";
 
 const Hero = () => {
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.profile);
   const { balance } = useSelector((state) => state.transaction);
   const [showBalance, setShowBalance] = useState(false);
   const formattedBalance = formatThousand(balance || 0);

@@ -33,21 +33,7 @@ export const loginActionUser = createAsyncThunk(
   }
 );
 
-export const getProfileAction = createAsyncThunk(
-  "auth/getProfileAction",
-  async (_, thunkAPI) => {
-    try {
-      const response = await api.get("/profile");
-      return response.data;
-    } catch (error: any) {
-      console.error("Get Profile Error:", error);
-      const message =
-        error.response?.data?.message ||
-        `Terjadi kesalahan: ${error.response?.status || "Server Error"}`;
-      return thunkAPI.rejectWithValue(message);
-    }
-  }
-);
+// get profile dipindahkan ke profileSlice
 
 const initialState = {
   isLoading: false,
@@ -120,27 +106,6 @@ const authSlice = createSlice({
         }
       })
       .addCase(loginActionUser.rejected, (state, action) => {
-        state.isLoading = false;
-        state.isError = true;
-        state.isSuccess = false;
-        state.errorMessage = action.payload as string;
-      })
-
-      // Get Profile
-      .addCase(getProfileAction.pending, (state) => {
-        state.isLoading = true;
-        state.isError = false;
-        state.isSuccess = false;
-        state.errorMessage = "";
-      })
-      .addCase(getProfileAction.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.isError = false;
-        state.isSuccess = true;
-        state.errorMessage = "";
-        state.user = action.payload?.data;
-      })
-      .addCase(getProfileAction.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.isSuccess = false;

@@ -4,3 +4,4 @@ export { default as HomePage } from "./homepage/homepage";
 export { default as TopupPage } from "./topuppage/topuppage";
 export { default as TransactionPage } from "./transactionpage/transactionpage";
 export { default as AkunPage } from "./akunpage/akunpage";
+export { default as PaymentPage } from "./paymentpage/paymentpage";

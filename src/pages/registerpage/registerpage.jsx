@@ -8,6 +8,7 @@ import { LuAtSign, LuLock, LuEye, LuEyeOff, LuUser } from "react-icons/lu";
 import { AuthLayout, Button, Input } from "@/components";
 import { registerSchema } from "@/lib/validation";
 import { registerActionUser, resetState } from "@/store/authSlice";
+import { Toast } from "@/lib/toast";
 
 const RegisterPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -41,13 +42,16 @@ const RegisterPage = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      alert("Registrasi berhasil silakan login.");
+      Toast.fire({
+        icon: "success",
+        title: "Registrasi berhasil silakan login.",
+      });
       dispatch(resetState());
       navigate("/login");
     }
 
     if (isError) {
-      alert(errorMessage);
+      Toast.fire({ icon: "error", title: errorMessage });
       dispatch(resetState());
     }
   }, [isSuccess, isError, errorMessage, navigate, dispatch]);
