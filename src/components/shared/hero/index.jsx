@@ -18,6 +18,26 @@ const Hero = () => {
   return (
     <div className="w-full">
       <div className="flex flex-col md:flex-row gap-4">
+        <div className="flex md:hidden items-center gap-3">
+          <img
+            src={
+              user?.profile_image &&
+              user?.profile_image !==
+                "https://minio.nutech-integrasi.com/take-home-test/null"
+                ? user.profile_image
+                : ProfileAsset
+            }
+            alt="Profile"
+            className="w-12 h-12 rounded-full"
+          />
+          <div className="flex flex-col">
+            <Label className="text-sm">Selamat Datang,</Label>
+            <Label className="text-lg font-semibold">
+              {user ? `${user.first_name} ${user.last_name}` : "User"}
+            </Label>
+          </div>
+        </div>
+
         <div className="w-full hidden md:flex flex-col md:w-[40%] gap-2 p-4 md:p-0">
           <img
             src={
@@ -37,7 +57,8 @@ const Hero = () => {
             {user ? `${user.first_name} ${user.last_name}` : "User"}
           </Label>
         </div>
-        <div className="w-full md:w-[60%] h-50 md:h-40 lg:h-full overflow-hidden rounded-3xl relative">
+
+        <div className="w-full md:w-[60%] h-40 md:h-40 lg:h-full overflow-hidden rounded-3xl relative">
           <img
             src={BgSaldoAsset}
             alt="Logo Saldo"
